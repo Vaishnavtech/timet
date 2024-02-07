@@ -9,15 +9,40 @@ class box extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return Container(
+      alignment: Alignment.center,
       decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.teal[200],
                   ),
                   padding: const EdgeInsets.all(8),
-                  child:  Text(boxText),
+                  child:  Text(boxText,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
     );
   }
 }
+
+class hdr extends StatelessWidget {
+  
+    String boxText;
+    hdr(this.boxText);
+    
+  @override
+  Widget build(BuildContext context) {
+    
+    return Container(
+      
+      
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Color.fromARGB(255, 255, 255, 255),
+                  ),
+                  padding: const EdgeInsets.all(8),
+                  
+                  child:  Text(boxText,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
+    );
+  }
+}
+
 
 class screenone extends StatelessWidget {
   const screenone({super.key});
@@ -30,43 +55,55 @@ class screenone extends StatelessWidget {
           child: SizedBox(
             height: 600,
             child: GridView.count(
+              
               scrollDirection: Axis.horizontal,
               primary: true,
               padding: const EdgeInsets.all(8),
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
-              crossAxisCount: 5,
+              crossAxisCount: 6,
               children: [
-                box("test1"),
-                box("test2"),
-                box("test3"),
-                box("test4"),
-                box("test5"),
-                box("test6"),
-                box("test7"),
-                box("test8"),
-                box("test9"),
-                box("test10"),
-                box("test11"),
-                box("test12"),
-                box("test13"),
-                box("test14"),
-                box("test15"),
-                box("test16"),
-                box("test17"),
-                box("test18"),
-                box("test19"),
-                box("test20"),
-                box("test21"),
-                box("test22"),
-                box("test23"),
-                box("test24"),
-                box("test25"),
-                box("test26"),
-                box("test27"),
-                box("test28"),
-                box("test29"),
-                box("test30"),
+                hdr("1"),
+                box("TEXT1"),
+                box("TEXT2"),
+                box("TEXT3"),
+                box("TEXT4"),                
+                box("TEXT5"),
+
+                hdr("2"),
+                box("TEXT10"),           
+                box("TEXT6"),
+                box("TEXT7"),
+                box("TEXT8"),
+                box("TEXT9"),
+
+                hdr("3"),
+                box("TEXT11"),
+                box("TEXT12"),
+                box("TEXT13"),
+                box("TEXT14"),
+                box("TEXT15"),
+
+                hdr("4"),
+                box("TEXT16"),
+                box("TEXT17"),
+                box("TEXT18"),
+                box("TEXT19"),
+                box("TEXT20"),
+
+                hdr("5"),
+                box("TEXT21"),
+                box("TEXT22"),
+                box("TEXT23"),
+                box("TEXT24"),
+                box("TEXT25"),
+
+                hdr("6"),
+                box("TEXT26"),
+                box("TEXT27"),
+                box("TEXT28"),
+                box("TEXT29"),
+                box("TEXT30"),
               ],
             ),
           ),
