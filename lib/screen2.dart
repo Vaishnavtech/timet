@@ -34,7 +34,7 @@ class hdr extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Color.fromARGB(255, 255, 255, 255),
+                    color:Colors.teal[200],
                   ),
                   padding: const EdgeInsets.all(8),
                   
