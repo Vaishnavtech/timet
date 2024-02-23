@@ -5,7 +5,7 @@ class box extends StatelessWidget {
   String boxText;
   box(this.boxText);
   final moonLanding = DateTime.parse(DateTime.now().toString());
-  Color? method() {
+  Color? metho() {
     
     return Colors.teal[200];
   }
@@ -17,7 +17,7 @@ class box extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: method(),
+          color: metho(),
         ),
         padding: const EdgeInsets.all(8),
         child: Text(

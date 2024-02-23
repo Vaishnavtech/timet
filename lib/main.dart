@@ -11,46 +11,58 @@ class box2 extends StatelessWidget {
   double x;
   double y;
   String boxText2;
-  
-  box2(this.boxText2, [this.y = 100, this.x = 100]);
+  int day;
+  final moonLanding = DateTime.parse(DateTime.now().toString());
+   Color? method(day) {
+    if(moonLanding.weekday==day){
+     return Color.fromARGB(255, 128, 203, 153);
+    }
+    else{
+    return Colors.teal[200];
+    }
+  }
+  box2(this.boxText2,this.day, [this.y = 100, this.x = 100]);
+
 
   @override
   Widget build(BuildContext context) {
     return FlipCard(
-  front: Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Container(
-        width: x,
-        height: y,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.teal[200],
-        ),
-        padding: const EdgeInsets.all(8),
-        child: Text(
-          boxText2,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+      front: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Container(
+          width: x,
+          height: y,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: method(day),
+          ),
+          padding: const EdgeInsets.all(8),
+          child: Text(
+            boxText2,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+          ),
         ),
       ),
-),back: Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Container(
-        width: x,
-        height: y,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.teal[200],
+      back: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Container(
+          width: x,
+          height: y,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.teal[200],
+          ),
+          padding: const EdgeInsets.all(8),
+          child: Text(
+            "ROOM",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+          ),
         ),
-        padding: const EdgeInsets.all(8),
-        child: Text(
-          "ROOM",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-),
       ),
-    ),
-    direction: FlipDirection.VERTICAL,);
+      direction: FlipDirection.VERTICAL,
+    );
   }
 }
 
@@ -93,52 +105,52 @@ class home extends StatelessWidget {
               ),
               Row(
                 children: [
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
+                  box2("TP",1),
+                  box2("TP",1),
+                  box2("TP",1),
+                  box2("TP",1),
+                  box2("TP",1),
+                  box2("TP",1),
                 ],
               ),
               Row(
                 children: [
-                  box2("TP 1"),
-                  box2("TP 2"),
-                  box2("TP 3"),
-                  box2("TP 4"),
-                  box2("TP 5"),
-                  box2("TP 6"),
+                  box2("TP 1",2),
+                  box2("TP 2",2),
+                  box2("TP 3",2),
+                  box2("TP 4",2),
+                  box2("TP 5",2),
+                  box2("TP 6",2),
                 ],
               ),
               Row(
                 children: [
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
+                  box2("TP",3),
+                  box2("TP",3),
+                  box2("TP",3),
+                  box2("TP",3),
+                  box2("TP",3),
+                  box2("TP",3),
                 ],
               ),
               Row(
                 children: [
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
+                  box2("TP",4),
+                  box2("TP",4),
+                  box2("TP",4),
+                  box2("TP",4),
+                  box2("TP",4),
+                  box2("TP",4),
                 ],
               ),
               Row(
                 children: [
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
-                  box2("TP"),
+                  box2("TP",5),
+                  box2("TP",5),
+                  box2("TP",5),
+                  box2("TP",5),
+                  box2("TP",5),
+                  box2("TP",5),
                 ],
               ),
               ElevatedButton(
