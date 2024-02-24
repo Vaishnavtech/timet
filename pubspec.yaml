@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flip_card: ^0.7.0
   csv: ^5.1.1
+  file_picker: ^6.1.1
+  path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:
