@@ -4,112 +4,73 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show SystemUiOverlayStyle, rootBundle;
 import 'package:csv/csv.dart';
-
+import 'package:timet/box.dart';
 
 class bulkUpload extends StatefulWidget {
   const bulkUpload({Key? key}) : super(key: key);
 
   @override
-  State<bulkUpload> createState() => _bulkUploadState();
+  State<bulkUpload> createState() => bulkUploadState();
 }
 
-class _bulkUploadState extends State<bulkUpload> {
+class bulkUploadState extends State<bulkUpload> {
   List<List<dynamic>> data = [];
-   String? filePath;
+  String? filePath;
 
   // This function is triggered when the  button is pressed
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
-        
-        title: const Text(".csv Upload",
-            style: TextStyle(color: Color.fromARGB(255, 16, 212, 16),
-              fontSize: 20.0,)
+      
+      backgroundColor: Colors.black,
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: FloatingActionButton(
+          onPressed:(){ pickFile();},
+          tooltip: 'Upload File',
+          child: const Icon(Icons.add)),
         ),
-      ),
-        body: Column(
-          children: [
-            ElevatedButton(
-            child: const Text("Upload FIle"),
-              onPressed:(){
-               pickFile();
-              },
-            ),
-
-            ListView.builder(
-              itemCount: data.length,
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemBuilder: (_, index) {
-                return DataTable(
+        body: SafeArea(
+          child: Column(
+            children: [
+              
+          
+              ListView.builder(
+                       
+                itemCount: data.length,
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemBuilder: (_, index) {
                   
-                 columns: [DataColumn(label: Text("1")),
-                           DataColumn(label: Text("2")),
-                           DataColumn(label: Text("3")),
-                           DataColumn(label: Text("4")), 
-                           DataColumn(label: Text("5")),
-                           DataColumn(label: Text("6")), ],
-
-                  rows: [DataRow(cells: [
-                    DataCell(Text(data[index][0].toString(),textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 15, fontWeight:FontWeight.bold ,color:Colors.black),)),DataCell(Text(data[0][0].toString(),textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 15, fontWeight:FontWeight.bold ,color:Colors.black),)),DataCell(Text(data[0][1].toString(),textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 15, fontWeight:FontWeight.bold ,color:Colors.black),)),DataCell(Text(data[0][2].toString(),textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 15, fontWeight:FontWeight.bold ,color:Colors.black),)),DataCell(Text(data[0][3].toString(),textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 15, fontWeight:FontWeight.bold ,color:Colors.black),)),DataCell(Text(data[0][4].toString(),textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 15, fontWeight:FontWeight.bold ,color:Colors.black),)), ]),],
-
-                );
-
-              },
-
-            ),
-            Container(
-              child:  ElevatedButton(
-                onPressed: ()async{
-                // set loading to true here
-
-                   for (var element in data.skip(1))  // for skip first value bcs its contain name
-                  {
-                    // var mydata = {
-                    //   "data": {
-                    //     "certificateType": "ProofOfEducation",
-                    //     "membershipNum": element[0],   if you want to iterate only name then use element[0]
-                    //     "registrationNum": element[1],
-                    //     "serialNum": element[2],
-                    //     "bcName": element[3],
-                    //     "bcExam": element[4],
-                    //     "date":element[5]
-                    //   },
-                    //
-                    // };
-                    ScaffoldMessenger.of(context).showSnackBar(  SnackBar(
-                      content: Text(element.toString()),
-                    ));
-                  }
-
-                }, child: const Text("Iterate Data"),
-
+                 
+          
+                  return Row(
+                    children: [
+                      box3(data[index][0].toString(), index),
+                      box3(data[index][1].toString(),index ),
+                      box3(data[index][2].toString(), index),
+                      box3(data[index][3].toString(), index),
+                      box3(data[index][4].toString(), index),
+                      box3(data[index][5].toString(), index),
+                    ],
+                  );
+                },
               ),
-            ),
-          ],
-        )
-    );
-
+              
+            ],
+          ),
+        ));
   }
 
   void pickFile() async {
-
     final result = await FilePicker.platform.pickFiles(allowMultiple: false);
 
     // if no file is picked
     if (result == null) return;
     // we will log the name, size and path of the
     // first picked file (if multiple are selected)
-   // print(result.files.first.name);
+    // print(result.files.first.name);
     filePath = result.files.first.path!;
 
     final input = File(filePath!).openRead();
@@ -119,9 +80,9 @@ class _bulkUploadState extends State<bulkUpload> {
         .toList();
     print(fields);
 
-      setState(() {
-        data = fields;
-      });
+    setState(() {
+      data = fields.sublist(1);
+    });
   }
-
 }
+

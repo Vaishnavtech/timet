@@ -336,3 +336,13 @@ Scaffold(
 
         Text(_data[index][0].toString(),textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 15, fontWeight:FontWeight.bold ,color:Colors.black),)
+
+                      Text(data[index][0].toString(),textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 15, fontWeight:FontWeight.bold ,color:Colors.black),),
+
+                      ElevatedButton(
+                child: const Text("Upload FIle"),
+                onPressed: () {
+                  pickFile();
+                },
+              ),

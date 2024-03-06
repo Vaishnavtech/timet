@@ -1,14 +1,16 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:timet/screen2.dart';
 import 'package:timet/box.dart';
-import 'package:csv/csv.dart';
-main() {
+
+import 'package:timet/csv.dart';
+
+
+
+main()
+{
   runApp(const Myapp());
 }
-
-
 
 class Myapp extends StatelessWidget {
   const Myapp({super.key});
@@ -26,10 +28,12 @@ class Myapp extends StatelessWidget {
 }
 
 class home extends StatelessWidget {
-  const home({super.key});
-
+  
+   home({super.key});
+final bulkInsta = bulkUploadState();
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
@@ -49,52 +53,52 @@ class home extends StatelessWidget {
               ),
               Row(
                 children: [
-                  box2("TP",1),
-                  box2("TP",1),
-                  box2("TP",1),
-                  box2("TP",1),
-                  box2("TP",1),
-                  box2("TP",1),
+                  box2("f", 1),
+                  box2("f", 1),
+                  box2("t", 1),
+                  box2("TP", 1),
+                  box2("TP", 1),
+                  box2("TP", 1),
                 ],
               ),
               Row(
                 children: [
-                  box2("TP 1",2),
-                  box2("TP 2",2),
-                  box2("TP 3",2),
-                  box2("TP 4",2),
-                  box2("TP 5",2),
-                  box2("TP 6",2),
+                  box2("TP 1", 2),
+                  box2("TP 2", 2),
+                  box2("TP 3", 2),
+                  box2("TP 4", 2),
+                  box2("TP 5", 2),
+                  box2("TP 6", 2),
                 ],
               ),
               Row(
                 children: [
-                  box2("TP",3),
-                  box2("TP",3),
-                  box2("TP",3),
-                  box2("TP",3),
-                  box2("TP",3),
-                  box2("TP",3),
+                  box2("TP", 3),
+                  box2("TP", 3),
+                  box2("TP", 3),
+                  box2("TP", 3),
+                  box2("TP", 3),
+                  box2("TP", 3),
                 ],
               ),
               Row(
                 children: [
-                  box2("TP",4),
-                  box2("TP",4),
-                  box2("TP",4),
-                  box2("TP",4),
-                  box2("TP",4),
-                  box2("TP",4),
+                  box2("TP", 4),
+                  box2("TP", 4),
+                  box2("TP", 4),
+                  box2("TP", 4),
+                  box2("TP", 4),
+                  box2("TP", 4),
                 ],
               ),
               Row(
                 children: [
-                  box2("TP",5),
-                  box2("TP",5),
-                  box2("TP",5),
-                  box2("TP",5),
-                  box2("TP",5),
-                  box2("TP",5),
+                  box2("TP", 5),
+                  box2("TP", 5),
+                  box2("TP", 5),
+                  box2("TP", 5),
+                  box2("TP", 5),
+                  box2("TP", 5),
                 ],
               ),
               ElevatedButton(
@@ -105,12 +109,14 @@ class home extends StatelessWidget {
                           builder: (context) => const screenone()),
                     );
                   },
-                  child: Text('click')),ElevatedButton(
-            child: const Text("Upload FIle"),
-              onPressed:(){
-               
-              },
-            ),
+                  child: Text('click')),
+              ElevatedButton(
+                child: const Text("Upload FIle"),
+                onPressed: () {
+                  bulkInsta.pickFile();
+                  
+                },
+              ),
             ],
           ),
         ),
@@ -118,4 +124,3 @@ class home extends StatelessWidget {
     );
   }
 }
-
