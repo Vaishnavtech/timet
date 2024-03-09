@@ -91,20 +91,31 @@ class hdr2 extends StatelessWidget {
 class box3 extends StatelessWidget {
   double x;
   double y;
-  
+
   String boxText2 = "ui";
+  String room;
   int day;
 
   final moonLanding = DateTime.parse(DateTime.now().toString());
-  Color? method(day) {
-    if (moonLanding.weekday == day+1) {
+  Color? method(day) 
+  {
+    if (moonLanding.weekday == day + 1) {
       return Color.fromARGB(255, 128, 203, 153);
     } else {
       return Colors.teal[200];
     }
   }
 
-  box3(this.boxText2, this.day,[this.y = 100, this.x = 100]);
+  Color? method2(day) 
+  {
+    if (moonLanding.weekday == day + 1) {
+      return Color.fromARGB(255, 78, 194, 117);
+    } else {
+      return Color.fromARGB(255, 87, 183, 171);
+    }
+  }
+
+  box3(this.boxText2, this.day,this.room ,[this.y = 100, this.x = 100]);
 
   @override
   Widget build(BuildContext context) {
@@ -134,11 +145,11 @@ class box3 extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: Colors.teal[200],
+            color:  method2(day),
           ),
           padding: const EdgeInsets.all(8),
           child: Text(
-            "ROOM",
+            room,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
           ),
         ),

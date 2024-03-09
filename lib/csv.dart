@@ -32,34 +32,40 @@ class bulkUploadState extends State<bulkUpload> {
           child: const Icon(Icons.add)),
         ),
         body: SafeArea(
-          child: Column(
-            children: [
-              
-          
-              ListView.builder(
-                       
-                itemCount: data.length,
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemBuilder: (_, index) {
-                  
-                 
-          
-                  return Row(
-                    children: [
-                      box3(data[index][0].toString(), index),
-                      box3(data[index][1].toString(),index ),
-                      box3(data[index][2].toString(), index),
-                      box3(data[index][3].toString(), index),
-                      box3(data[index][4].toString(), index),
-                      box3(data[index][5].toString(), index),
-                    ],
-                  );
-                },
+          child:
+       SingleChildScrollView(
+        
+        
+        scrollDirection:MediaQuery.of(context).orientation == Orientation.landscape?Axis.vertical: Axis.horizontal,
+
+        
+         child: Column(
+          children: [ Row(
+                children: [
+                  hdr2("1", 40),
+                  hdr2("2", 40),
+                  hdr2("3", 40),
+                  hdr2("4", 40),
+                  hdr2("5", 40),
+                  hdr2("6", 40),
+                ],
               ),
-              
+               
+               for (int i = 0; i < data.length; i++)
+          Row(
+            children: [
+              box3(data[i][0].toString(), i, data[i][6].toString()),
+              box3(data[i][1].toString(), i, data[i][6].toString()),
+              box3(data[i][2].toString(), i, data[i][6].toString()),
+              box3(data[i][3].toString(), i, data[i][7].toString()),
+              box3(data[i][4].toString(), i, data[i][7].toString()),
+              box3(data[i][5].toString(), i, data[i][7].toString()),
             ],
           ),
+             ],
+           ),
+       ),
+
         ));
   }
 
