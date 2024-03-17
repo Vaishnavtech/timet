@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show SystemUiOverlayStyle, rootBundle;
 import 'package:csv/csv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:timet/box.dart';
@@ -19,10 +18,8 @@ class bulkUploadState extends State<bulkUpload> {
   List<List<dynamic>> data = [];
   String? filePath;
 
-
-
 Future<void> getDataFromHive() async {
-  print("get    data");
+
   final box = await Hive.openBox<UploadData>('bulkUploadData');
   final dataList = box.values.map((e) => e.rowData).toList();
   setState(() {
@@ -38,9 +35,6 @@ Future<void> getDataFromHive() async {
   @override
   Widget build(BuildContext context) {
     
-      
-    
-
     return Scaffold(
         backgroundColor: Colors.black,
         floatingActionButton: Padding(
@@ -111,7 +105,7 @@ Future<void> getDataFromHive() async {
   }
 
   Future<void> saveDataToHive() async {
-     print("sava    data");
+   
     final box = await Hive.openBox<UploadData>('bulkUploadData');
 
     for (var row in data) {

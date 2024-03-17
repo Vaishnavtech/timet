@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:hive_flutter/adapters.dart';
 
-import 'package:timet/box.dart';
 import 'package:timet/model.dart';
 import 'package:timet/csv.dart';
 
