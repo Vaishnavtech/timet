@@ -1,4 +1,0 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:timet/screen2.dart';
-import 'package:timet/box.dart';
