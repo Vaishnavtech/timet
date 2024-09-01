@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "273052448154",
+    "project_id": "time-t-732cb",
+    "storage_bucket": "time-t-732cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:273052448154:android:750b76f8bb4d25f7b0f623",
+        "android_client_info": {
+          "package_name": "com.example.timet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6HT4QHr-Gw47qVGHM3nNPvHjzuCd580c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
