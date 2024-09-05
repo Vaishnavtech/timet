@@ -6,6 +6,7 @@ import 'package:csv/csv.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:timet/box.dart';
 import 'package:timet/model.dart';
+import 'package:timet/screen2.dart';
 
 class bulkUpload extends StatefulWidget {
   const bulkUpload({Key? key}) : super(key: key);
@@ -45,6 +46,8 @@ Future<void> getDataFromHive() async {
               },
               tooltip: 'Upload File',
               child: const Icon(Icons.add)),
+              
+              
         ),
         body: SafeArea(
           child: SingleChildScrollView(
@@ -75,6 +78,16 @@ Future<void> getDataFromHive() async {
                       box3(data[i][5].toString(), i, data[i][7].toString()),
                     ],
                   ),
+                  
+                  IconButton(
+  onPressed: () {
+   Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => FirestoreManagementScreen()),
+            );
+  },
+  icon: Icon(Icons.delete),
+)
               ],
             ),
           ),

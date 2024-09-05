@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-
+import 'package:timet/screen2.dart';
 import 'package:timet/model.dart';
 import 'package:timet/csv.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:provider/provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
@@ -15,7 +16,14 @@ Future<void> main() async {
 await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
 );
-  runApp(Myapp());
+
+
+   runApp(
+    ChangeNotifierProvider(
+      create: (context) => ColorProvider()..getColor(),
+      child: Myapp(),
+    ),
+  );
 }
 
 FirebaseAnalytics analytics = FirebaseAnalytics.instance;
