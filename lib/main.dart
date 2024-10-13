@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:timet/screen2.dart';
 import 'package:timet/model.dart';
 import 'package:timet/csv.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -19,9 +18,12 @@ await Firebase.initializeApp(
 
 
    runApp(
-    ChangeNotifierProvider(
-      create: (context) => ColorProvider()..getColor(),
-      child: Myapp(),
+    MultiProvider( 
+      providers: [
+       
+        ChangeNotifierProvider(create: (_) => ColorProvider()..getColor()), 
+      ],
+      child: Myapp(), 
     ),
   );
 }

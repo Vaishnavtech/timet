@@ -18,7 +18,7 @@ class hdr2 extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Color.fromARGB(255, 100, 245, 201),
+          color: Color.fromARGB(190, 100, 245, 202),
         ),
         padding: const EdgeInsets.all(8),
         child: Text(
@@ -41,16 +41,16 @@ class box3 extends StatelessWidget {
   final moonLanding = DateTime.parse(DateTime.now().toString());
   Color? method(day) 
   {
-    if (moonLanding.weekday == day + 1) {
+    if (moonLanding.weekday == day) {
       return Color.fromARGB(255, 128, 203, 153);
     } else {
-      return Colors.teal[200];
+      return const Color.fromARGB(193, 103, 165, 159);
     }
   }
 
   Color? method2(day) 
   {
-    if (moonLanding.weekday == day + 1) {
+    if (moonLanding.weekday == day ) {
       return Color.fromARGB(255, 78, 194, 117);
     } else {
       return Color.fromARGB(255, 87, 183, 171);
